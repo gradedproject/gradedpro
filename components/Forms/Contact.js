@@ -67,6 +67,7 @@ function Contact(props) {
       <Container maxWidth="md">
         <Typography variant="h3" gutterBottom>
           {t('common:contact_title')}
+          
         </Typography>
         <Typography className={classes.desc}>
           {t('common:contact_subtitle')}

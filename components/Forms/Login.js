@@ -15,7 +15,7 @@ import Title from '../Title/TitleSecondary';
 import AuthFrame from './AuthFrame';
 import useStyles from './form-style';
 
-function Login(props) {
+function Login(props) { 
   const classes = useStyles();
   const { t } = props;
   const [values, setValues] = useState({

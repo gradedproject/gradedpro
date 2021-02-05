@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Header from '../components/Header';
 import AnimateSlider from '../components/AnimateSlider';
-import Feature from '../components/Feature';
+import Code from '../components/Feature/Code';
 import Counter from '../components/Counter';
 import Testimonials from '../components/Testimonials';
 import Pricing from '../components/Pricing';
@@ -18,7 +18,6 @@ import Footer from '../components/Footer';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../public/text/brand';
-import ListProject from '../components/projectcategory/'
 
 const sectionMargin = margin => (margin * 15);
 const useStyles = makeStyles(theme => ({
@@ -30,15 +29,13 @@ const useStyles = makeStyles(theme => ({
   spaceBottom: {
     marginBottom: sectionMargin(theme.spacing())
   },
-  spaceTop: {
-    paddingTop: sectionMargin(theme.spacing())
-  },
+ 
   containerWrap: {
     marginTop: theme.spacing(15)
   },
 }));
 
-function Landing(props) {
+function SourceCode(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
@@ -57,35 +54,19 @@ function Landing(props) {
           onToggleDir={onToggleDir}
         />
         <main className={classes.containerWrap}>
-          <section>
+         
+          <section className={clsx(classes.spaceTop, classes.spaceBottom)} id="feature">
             <Container fixed>
-              <AnimateSlider />
+              <Code />
             </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <Feature />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <ListProject />
-            </Container>
-          </section>
-          
-          <section className={classes.pageSection}>
-            <Counter />
-          </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
           </section>
         
-          <section className={clsx(classes.spaceBottom)} id="blog">
+         
+          <section className={clsx(classes.spaceTop, classes.spaceBottom)} id="blog">
             <Blog />
           </section>
           <section id="subscribe">
             <Subscribe />
-        
           </section>
         </main>
         <Hidden mdDown>
@@ -100,14 +81,14 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async () => ({
+SourceCode.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 });
 
-Landing.propTypes = {
+SourceCode.propTypes = {
   onToggleDark: PropTypes.func.isRequired,
   onToggleDir: PropTypes.func.isRequired,
 };
 
 
-export default Landing;
+export default SourceCode;

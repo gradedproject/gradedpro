@@ -51,11 +51,11 @@ function Header(props) {
   const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [menuList] = useState([
-    createData(navMenu[0], '#' + navMenu[0]),
-    createData(navMenu[1], '#' + navMenu[1]),
-    createData(navMenu[2], '#' + navMenu[2]),
-    createData(navMenu[3], '#' + navMenu[3]),
-    createData(navMenu[4], '#' + navMenu[4]),
+    createData(navMenu[0], navMenu[0]),
+    createData(navMenu[1], navMenu[1]),
+    createData(navMenu[2], navMenu[2]),
+    createData(navMenu[3], navMenu[3]),
+    createData(navMenu[4], navMenu[4]),
   ]);
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => {
@@ -87,9 +87,10 @@ function Header(props) {
                 </IconButton>
               )}
               <div className={classes.logo}>
-                <AnchorLink href="#home">
-                  <img src={logo} alt="logo" />
+                <AnchorLink href="/">
+                 
                 </AnchorLink>
+                <Button href="/"> <img src={logo} alt="logo" /></Button>
               </div>
               {isDesktop && (
                 <Scrollspy
@@ -98,18 +99,18 @@ function Header(props) {
                 >
                   { menuList.map(item => (
                     <li key={item.id.toString()}>
-                      <Button component={AnchorLink} href={item.url}>{item.name}</Button>
+                      <Button href={item.url}>{item.name}</Button>
                     </li>
                   )) }
                   <li>
-                    <Button href="#">Contact</Button>
+                    <Button href="/contact">Contact</Button>
                   </li>
                 </Scrollspy>
               )}
             </nav>
             <nav className={classes.userMenu}>
-              { isDesktop && <Button href="#">Login</Button> }
-              <Button variant="contained" color="primary" href="#">Register</Button>
+              { isDesktop && <Button href="/login">Login</Button> }
+              <Button variant="contained" color="primary" href="/register">Register</Button>
               { isDesktop && <span className={classes.vDivider} /> }
               <Settings toggleDark={onToggleDark} toggleDir={onToggleDir} />
             </nav>

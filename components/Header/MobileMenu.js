@@ -21,11 +21,11 @@ function MobileMenu(props) {
     >
       <div className={clsx(classes.menu, open && classes.menuOpen)}>
         <List>
-          {navMenu.map((item, index) => (
+          {['services', 'Get_Source_Code', 'hire_A_writer', 'request_project', 'blog'].map((item, index) => (
             <ListItem
               button
               component="a"
-              href={`#${item}`}
+              href={`/${item}`}
               key={item}
               index={index.toString()}
               style={{ animationDuration: index * 0.15 + 's' }}

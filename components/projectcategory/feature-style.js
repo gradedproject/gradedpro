@@ -13,19 +13,21 @@ const decoration = theme => ({
 
 const featureStyles = makeStyles(theme => ({
   pageSection: {
-    marginBottom: theme.spacing(0)
-  },
-  comp: {
-textAlign:'center'
+    marginBottom: theme.spacing(20)
   },
   featureWrap: {
     position: 'relative'
+  },
+  featureLink: {
+    textAlign: 'center',
+    textDecoration: 'none',
+    color: 'primary'
   },
   icon: {},
   featureList: {
     textAlign: 'center',
     '& h5': {
-      margin: `${theme.spacing(3)}px 0`
+      margin: `${theme.spacing()}px 0`
     },
     '& $icon': {
       fill: theme.palette.primary.main,
@@ -62,7 +64,7 @@ textAlign:'center'
       [theme.breakpoints.down('sm')]: {
         maxWidth: '98%',
       },
-      marginTop: theme.spacing(5),
+      marginTop: theme.spacing(1),
       '& img': {
         width: '100%'
       }
@@ -70,7 +72,7 @@ textAlign:'center'
   },
   featureItem: {
     position: 'relative',
-    marginBottom: theme.spacing(0),
+    marginBottom: theme.spacing(20),
     '&$last': {
       marginBottom: 0,
     }

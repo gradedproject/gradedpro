@@ -213,7 +213,7 @@ const contactStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     paddingBottom: theme.spacing(10),
     overflow: 'hidden',
-    '& $frmDeco': {
+    '': {
       left: '58.333333%',
       transform: 'translateX(-72%)',
       bottom: '-75px'

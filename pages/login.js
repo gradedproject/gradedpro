@@ -18,7 +18,9 @@ import Footer from '../components/Footer';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../public/text/brand';
-import ListProject from '../components/projectcategory/'
+import Login from '../components/Forms/Login'
+import Blogs from './blog';
+
 
 const sectionMargin = margin => (margin * 15);
 const useStyles = makeStyles(theme => ({
@@ -38,13 +40,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Landing(props) {
+function LoginPage(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
     <React.Fragment>
       <Head>
-        <title>
+        <title>  
           { brand.starter.name }
           &nbsp; - Home Page
         </title>
@@ -57,38 +59,9 @@ function Landing(props) {
           onToggleDir={onToggleDir}
         />
         <main className={classes.containerWrap}>
-          <section>
-            <Container fixed>
-              <AnimateSlider />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <Feature />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <ListProject />
-            </Container>
-          </section>
-          
-          <section className={classes.pageSection}>
-            <Counter />
-          </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
-          </section>
-        
-          <section className={clsx(classes.spaceBottom)} id="blog">
-            <Blog />
-          </section>
-          <section id="subscribe">
-            <Subscribe />
-        
-          </section>
-        </main>
-        <Hidden mdDown>
+            <Login />
+         </main>
+           <Hidden mdDown>
           <PageNav />
         </Hidden>
         <Footer toggleDir={onToggleDir} />
@@ -100,14 +73,14 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async () => ({
+LoginPage.getInitialProps = async () => ({
   namespacesRequired: ['common'],
 });
 
-Landing.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
+LoginPage.propTypes = {
+  onToggleDark: PropTypes.func.isRequired,   
   onToggleDir: PropTypes.func.isRequired,
 };
 
 
-export default Landing;
+export default LoginPage;

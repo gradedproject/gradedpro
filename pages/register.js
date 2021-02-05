@@ -18,7 +18,8 @@ import Footer from '../components/Footer';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../public/text/brand';
-import ListProject from '../components/projectcategory/'
+import Blogs from './blog';
+import Register from '../components/Forms/Register';
 
 const sectionMargin = margin => (margin * 15);
 const useStyles = makeStyles(theme => ({
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Landing(props) {
+function RegisterPage(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
@@ -57,38 +58,9 @@ function Landing(props) {
           onToggleDir={onToggleDir}
         />
         <main className={classes.containerWrap}>
-          <section>
-            <Container fixed>
-              <AnimateSlider />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <Feature />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <ListProject />
-            </Container>
-          </section>
-          
-          <section className={classes.pageSection}>
-            <Counter />
-          </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
-          </section>
-        
-          <section className={clsx(classes.spaceBottom)} id="blog">
-            <Blog />
-          </section>
-          <section id="subscribe">
-            <Subscribe />
-        
-          </section>
-        </main>
-        <Hidden mdDown>
+            <Register />
+         </main>
+           <Hidden mdDown>
           <PageNav />
         </Hidden>
         <Footer toggleDir={onToggleDir} />
@@ -100,14 +72,14 @@ function Landing(props) {
   );
 }
 
-Landing.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+RegisterPage.getInitialProps = async () => ({
+  namespacesRequired: ['common', Blogs],
 });
 
-Landing.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
+RegisterPage.propTypes = {
+  onToggleDark: PropTypes.func.isRequired,   
   onToggleDir: PropTypes.func.isRequired,
 };
 
 
-export default Landing;
+export default RegisterPage;

@@ -18,7 +18,7 @@ import Footer from '../components/Footer';
 import PageNav from '../components/PageNav';
 import Notification from '../components/Notification';
 import brand from '../public/text/brand';
-import ListProject from '../components/projectcategory/'
+import Blogs from './blog';
 
 const sectionMargin = margin => (margin * 15);
 const useStyles = makeStyles(theme => ({
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Landing(props) {
+function Services(props) {
   const classes = useStyles();
   const { onToggleDark, onToggleDir } = props;
   return (
@@ -56,58 +56,29 @@ function Landing(props) {
           onToggleDark={onToggleDark}
           onToggleDir={onToggleDir}
         />
-        <main className={classes.containerWrap}>
-          <section>
-            <Container fixed>
-              <AnimateSlider />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <Feature />
-            </Container>
-          </section>
-          <section  id="feature">
-            <Container fixed>
-              <ListProject />
-            </Container>
-          </section>
-          
-          <section className={classes.pageSection}>
-            <Counter />
-          </section>
-          <section className={classes.spaceTop} id="testimonials">
-            <Testimonials />
-          </section>
-        
-          <section className={clsx(classes.spaceBottom)} id="blog">
-            <Blog />
-          </section>
-          <section id="subscribe">
-            <Subscribe />
-        
-          </section>
-        </main>
-        <Hidden mdDown>
+         <main className={classes.containerWrap}>
+           <h1>THESES IS HIRE A WRITER yyy strr </h1>
+         </main>
+           <Hidden mdDown>
           <PageNav />
         </Hidden>
         <Footer toggleDir={onToggleDir} />
         <Hidden mdDown>
           <Notification />
-        </Hidden>
+        </Hidden> 
       </div>
     </React.Fragment>
   );
 }
 
-Landing.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+Services.getInitialProps = async () => ({
+  namespacesRequired: ['common', Blogs],
 });
 
-Landing.propTypes = {
-  onToggleDark: PropTypes.func.isRequired,
+Services.propTypes = {
+  onToggleDark: PropTypes.func.isRequired,   
   onToggleDir: PropTypes.func.isRequired,
 };
 
 
-export default Landing;
+export default Services;
